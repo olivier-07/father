@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #ff9966, #ff5e62); /* Colorful gradient */
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.front, .inside {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.8s;
+    border-radius: 15px;
+}
+
+.front {
+    background-color: #99f2c8; /* Light green */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.inside {
+    background-color: #ffe5b4; /* Peach */
+    transform: rotateY(-180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.inside img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.inside h2 {
+    color: transparent; /* Make the original text color transparent */
+    background: linear-gradient(to right, #4f89fc, #ff0101); /* Gemini-inspired gradient */
+    -webkit-background-clip: text; /* Clip the gradient to the text */
+    background-clip: text;
+  }
+  
+
+.card:hover .front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .inside {
+    transform: rotateY(0deg);
+}
+
+@media (max-width: 768px) {  /* Adjust this breakpoint as needed */
+    .card {
+        width: 250px;
+        height: 350px;
+    }
+    .front, .inside {
+        font-size: 20px; 
+    }
+    .inside img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {  /* Adjust this breakpoint as needed */
+    .card {
+        width: 200px;
+        height: 300px;
+    }
+    .front, .inside {
+        font-size: 16px; 
+    }
+    .inside img {
+        width: 150px;
+        height: 150px;
+    }
+}
